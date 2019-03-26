@@ -1,5 +1,5 @@
 def print_code
-  file = file.open( , "r")
+  file = file.open( $0 , "r")
   file.readlines.each do |line|
     puts readline
   end
