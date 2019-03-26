@@ -1,4 +1,5 @@
 # let's put all students into an array
+
 students = [
   {name: "Dr. Hannibal Lecter", cohort: :november},
     {name: "Darth Vader", cohort: :november},
@@ -47,7 +48,23 @@ def print_footer(names)
   puts "Overall, we have #{names.count} great students"
 end
 
+def print_by_cohort(students)
+  if students.empty?
+    puts "No students available"
+  else
+    cohorts = students.map do |student|
+      student[:cohort]
+    end
+    cohorts.uniq.each do |cohort|
+      puts "#{cohort} cohort".upcase
+      students.each do |student|
+        puts student[:name] if student[:cohort] == cohort
+      end
+    end
+  end
+end
+
 students = input_students
 print_header
-print(students)
+print_by_cohort(students)
 print_footer(students)
